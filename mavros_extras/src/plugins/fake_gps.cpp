@@ -24,6 +24,8 @@
 
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TransformStamped.h>
+#include <sensor_msgs/NavSatFix.h>
+
 
 namespace mavros {
 namespace extra_plugins {
@@ -80,6 +82,7 @@ public:
 		fp_nh.param("geo_origin/lat", origin_lat, 47.3667);	// [degrees]
 		fp_nh.param("geo_origin/lon", origin_lon, 8.5500);	// [degrees]
 		fp_nh.param("geo_origin/alt", origin_alt, 408.0);	// [meters - height over the WGS-84 ellipsoid]
+		fake_gps_sub = fp_nh.subscribe("/fix", 5, &FakeGPSPlugin::fake_cb, this);
 
 		// init map origin with geodetic coordinates
 		map_origin = {origin_lat, origin_lon, origin_alt};
@@ -146,6 +149,8 @@ private:
 	ros::Subscriber mocap_tf_sub;
 	ros::Subscriber mocap_pose_sub;
 	ros::Subscriber vision_pose_sub;
+	ros::Subscriber fake_gps_sub;
+
 
 	bool use_mocap;			//!< set use of mocap data (PoseStamped msg)
 	bool use_vision;		//!< set use of vision data
@@ -234,6 +239,36 @@ private:
 
 		UAS_FCU(m_uas)->send_message_ignore_drop(fix);
 	}
+
+	sensor_msgs::NavSatFix fake_gps_receive;
+	void fake_cb(const sensor_msgs::NavSatFix::ConstPtr &msg){
+		fake_gps_receive = *msg;
+
+		mavlink::common::msg::HIL_GPS fix {};
+		fix.time_usec = fake_gps_receive.header.stamp.toNSec() / 1000;;
+		fix.lat = fake_gps_receive.latitude * 1e7;		// [degrees * 1e7]
+		fix.lon = fake_gps_receive.longitude* 1e7;		// [degrees * 1e7]
+		fix.alt = fake_gps_receive.altitude* 1e7;	// [meters * 1e3]
+
+		fix.eph = fake_gps_receive.position_covariance[0]* 1e2;			// [cm]
+		fix.epv = fake_gps_receive.position_covariance[1]* 1e2;			// [cm]
+		fix.satellites_visible = fake_gps_receive.position_covariance[2] * 1e2;
+		fix.cog = fake_gps_receive.position_covariance[3] *  1e2;			// [degrees * 1e2]
+
+
+		fix.vel = 0;	// [cm/s]
+		fix.vn = fake_gps_receive.position_covariance[4];			// [cm/s]
+		fix.ve = fake_gps_receive.position_covariance[5];			// [cm/s]
+		fix.vd = 0;			// [cm/s]
+		fix.fix_type = fake_gps_receive.status.status;
+		
+//		ROS_INFO("fix.lat = %.8f, fake_gps_receive.latitude = %.8f", fix.lat, fake_gps_receive.latitude* 1e7);
+//		ROS_INFO("fix.eph = %.2f", (double)fix.eph );
+
+		UAS_FCU(m_uas)->send_message_ignore_drop(fix);
+
+	}
+
 
 	/* -*- callbacks -*- */
 	void mocap_tf_cb(const geometry_msgs::TransformStamped::ConstPtr &trans)

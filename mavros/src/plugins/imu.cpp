@@ -23,6 +23,10 @@
 #include <sensor_msgs/Temperature.h>
 #include <sensor_msgs/FluidPressure.h>
 #include <geometry_msgs/Vector3.h>
+#include <geometry_msgs/TransformStamped.h>
+#include <eigen_conversions/eigen_msg.h>
+
+#define ENU_TO_NED 0
 
 namespace mavros {
 namespace std_plugins {
@@ -84,7 +88,10 @@ public:
 		static_press_pub = imu_nh.advertise<sensor_msgs::FluidPressure>("static_pressure", 10);
 		diff_press_pub = imu_nh.advertise<sensor_msgs::FluidPressure>("diff_pressure", 10);
 		imu_raw_pub = imu_nh.advertise<sensor_msgs::Imu>("data_raw", 10);
-
+		if (1) {
+			imu_sub = imu_nh.subscribe("/imu/data", 100, &IMUPlugin::imu_cb, this);
+			imu_msg_sub = imu_nh.subscribe("/imu/mag", 100, &IMUPlugin::imu_mag_cb, this);
+		}
 		// Reset has_* flags on connection change
 		enable_connection_cb();
 	}
@@ -111,6 +118,8 @@ private:
 	ros::Publisher temp_baro_pub;
 	ros::Publisher static_press_pub;
 	ros::Publisher diff_press_pub;
+	ros::Subscriber imu_sub;
+	ros::Subscriber imu_msg_sub;
 
 	bool has_hr_imu;
 	bool has_raw_imu;
@@ -381,8 +390,10 @@ private:
 		 */
 		// [mag_available]
 		if (imu_hr.fields_updated & (7 << 6)) {
+/*			auto mag_field = ftf::transform_frame_aircraft_baselink<Eigen::Vector3d>(
+						Eigen::Vector3d(imu_hr.xmag, imu_hr.ymag, imu_hr.zmag) * GAUSS_TO_TESLA);*/
 			auto mag_field = ftf::transform_frame_aircraft_baselink<Eigen::Vector3d>(
-						Eigen::Vector3d(imu_hr.xmag, imu_hr.ymag, imu_hr.zmag) * GAUSS_TO_TESLA);
+						Eigen::Vector3d(imu_hr.xmag, imu_hr.ymag, imu_hr.zmag) );
 
 			publish_mag(header, mag_field);
 		}
@@ -551,6 +562,53 @@ private:
 		has_hr_imu = false;
 		has_scaled_imu = false;
 		has_att_quat = false;
+	}
+
+	sensor_msgs::MagneticField imu_mag_msg;
+	void imu_mag_cb(const sensor_msgs::MagneticField::ConstPtr &msgs){
+		imu_mag_msg = *msgs;
+//		ROS_INFO("imu z mag = %.6f", (double)imu_mag_msg.magnetic_field.z);
+	}
+
+	sensor_msgs::Imu current_imu_msg;
+	void imu_cb(const sensor_msgs::Imu::ConstPtr &msgs){
+		current_imu_msg = *msgs;
+//		ROS_INFO("imu z acc = %.6f", (double)current_imu_msg.linear_acceleration.z);
+		mavlink::common::msg::HIL_SENSOR hts;
+		hts.xacc = current_imu_msg.linear_acceleration.x;
+		hts.yacc = -current_imu_msg.linear_acceleration.y;
+		hts.zacc = -current_imu_msg.linear_acceleration.z;
+//		ROS_INFO("hts.xacc = %.6f", hts.xacc);
+
+		hts.xgyro = current_imu_msg.angular_velocity.x;
+		hts.ygyro = current_imu_msg.angular_velocity.y;
+		hts.zgyro = current_imu_msg.angular_velocity.z;
+
+		hts.xmag = imu_mag_msg.magnetic_field.x;
+		hts.ymag = imu_mag_msg.magnetic_field.y;
+		hts.zmag = imu_mag_msg.magnetic_field.z;
+
+		if (0) {
+
+			auto ned_acc = ftf::transform_frame_enu_ned(Eigen::Vector3d(hts.xacc, hts.yacc, hts.zacc));
+			auto ned_gyro = ftf::transform_frame_enu_ned(Eigen::Vector3d(hts.xgyro, hts.ygyro, hts.zgyro));
+			auto ned_mag = ftf::transform_frame_enu_ned(Eigen::Vector3d(hts.xmag, hts.ymag, hts.zmag));
+			ROS_INFO("hts.xacc = %.6f, ned_acc.x = %.6f", hts.xacc, ned_acc(0));
+
+			hts.xacc = ned_acc(0);
+			hts.yacc = ned_acc(1);
+			hts.zacc = ned_acc(2);
+
+			hts.xgyro = ned_gyro(0);
+			hts.ygyro = ned_gyro(1);
+			hts.zgyro = ned_gyro(2);
+
+			hts.xmag = ned_mag(0);
+			hts.ymag = ned_mag(1);
+			hts.zmag = ned_mag(2);
+		}
+		UAS_FCU(m_uas)->send_message_ignore_drop(hts);
+
 	}
 };
 }	// namespace std_plugins

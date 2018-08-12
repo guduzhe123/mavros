@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1f53958b-8d06-4baf-a6e8-365fbdf23692" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/mavros/src/plugins/imu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mavros/src/plugins/imu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="global_position.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4940">
+              <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sys_status.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3432">
+              <caret line="132" column="28" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vfr_hud.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1170">
+              <caret line="45" column="54" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imu.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15054">
+              <caret line="579" column="58" selection-start-line="579" selection-start-column="58" selection-end-line="579" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fake_gps.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="266" column="62" lean-forward="true" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="local_position.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/src/plugins/local_position.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2210">
+              <caret line="85" selection-start-line="85" selection-end-line="85" selection-end-column="107" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mavros_plugin.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/include/mavros/mavros_plugin.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3432">
+              <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hil.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/src/plugins/hil.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6500">
+              <caret line="250" column="57" selection-start-line="250" selection-start-column="57" selection-end-line="250" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mavros_uas.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros/include/mavros/mavros_uas.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10634">
+              <caret line="409" column="38" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mocap_pose_estimate.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/mocap_pose_estimate.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2886">
+              <caret line="111" column="75" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>MAVlink</find>
+      <find>&quot;pose&quot;</find>
+      <find>subscirbe</find>
+      <find>connection_cb</find>
+      <find>subscribe</find>
+      <find>sensor_msgs::Imu</find>
+      <find>imu_enu_data</find>
+      <find>mavlink</find>
+      <find>sensor_cb</find>
+      <find>data</find>
+      <find>make_handler</find>
+      <find>handle_highres_imu</find>
+      <find>frame_id</find>
+      <find>aircraft</find>
+      <find>initialize</find>
+      <find>m_uas</find>
+      <find>linear_accel_vec_flu</find>
+      <find>TransformStamped</find>
+      <find>current_imu_msg.linear_acceleration</find>
+      <find>transform_frame_enu_ned</find>
+      <find>publish_imu_data_raw</find>
+      <find>enu_position</find>
+      <find>/mavros/imu/</find>
+      <find>GAUSS_TO_TESLA</find>
+      <find>imu_pub</find>
+      <find>publish_imu_data</find>
+      <find>publish_mag</find>
+      <find>magn_pub</find>
+      <find>fake_cb</find>
+      <find>fake_gps_sub</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/mavros/mavros_plugins.xml" />
+        <option value="$PROJECT_DIR$/mavros/src/plugins/hil.cpp" />
+        <option value="$PROJECT_DIR$/mavros/src/plugins/imu.cpp" />
+        <option value="$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="928" />
+    <option name="height" value="1084" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros_extras" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros_extras" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mavros" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mavros" type="462c0819:PsiDirectoryNode" />
+              <item name="mavros_extras" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../px4_ctrl" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1f53958b-8d06-4baf-a6e8-365fbdf23692" name="Default" comment="" />
+      <created>1530962179997</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530962179997</updated>
+      <workItem from="1530962182471" duration="5355000" />
+      <workItem from="1531226805969" duration="599000" />
+      <workItem from="1531310656827" duration="366000" />
+      <workItem from="1531311906424" duration="308000" />
+      <workItem from="1531314355545" duration="155000" />
+      <workItem from="1531315256847" duration="118000" />
+      <workItem from="1531315974819" duration="599000" />
+      <workItem from="1531574055089" duration="34470000" />
+      <workItem from="1532156562883" duration="599000" />
+      <workItem from="1532231116137" duration="599000" />
+      <workItem from="1532243038057" duration="599000" />
+      <workItem from="1532247487714" duration="599000" />
+      <workItem from="1532519597007" duration="595000" />
+      <workItem from="1532692583870" duration="12724000" />
+      <workItem from="1532845666621" duration="597000" />
+      <workItem from="1532865354687" duration="1840000" />
+      <workItem from="1533128504276" duration="599000" />
+      <workItem from="1533367536673" duration="597000" />
+      <workItem from="1533452286882" duration="379000" />
+      <workItem from="1533456765802" duration="69000" />
+      <workItem from="1533649386721" duration="1658000" />
+      <workItem from="1533899643347" duration="596000" />
+      <workItem from="1533965101477" duration="606000" />
+      <workItem from="1533970171294" duration="181000" />
+      <workItem from="1534063017349" duration="1204000" />
+      <workItem from="1534066460066" duration="599000" />
+      <workItem from="1534068074834" duration="4765000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="71375000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32969433" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32893288" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.3179318" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.18955731" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mavros/include/mavros/mavros_plugin.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3432">
+          <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/hil.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6500">
+          <caret line="250" column="57" lean-forward="true" selection-start-line="250" selection-start-column="57" selection-end-line="250" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/include/mavros/mavros_uas.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10634">
+          <caret line="409" column="38" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/mocap_pose_estimate.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2886">
+          <caret line="111" column="75" lean-forward="true" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15626">
+          <caret line="601" column="5" lean-forward="true" selection-start-line="601" selection-start-column="5" selection-end-line="601" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" lean-forward="true" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6812">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="118" column="64" lean-forward="true" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/mavros_plugins.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/global_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4940">
+          <caret line="190" column="96" selection-start-line="190" selection-start-column="96" selection-end-line="190" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/sys_status.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3432">
+          <caret line="132" column="28" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/vfr_hud.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/mocap_pose_estimate.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2886">
+          <caret line="111" column="75" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/include/mavros/mavros_uas.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10634">
+          <caret line="409" column="38" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/hil.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6500">
+          <caret line="250" column="57" selection-start-line="250" selection-start-column="57" selection-end-line="250" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/include/mavros/mavros_plugin.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3432">
+          <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/local_position.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="85" selection-start-line="85" selection-end-line="85" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros/src/plugins/imu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15054">
+          <caret line="579" column="58" selection-start-line="579" selection-start-column="58" selection-end-line="579" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="266" column="62" lean-forward="true" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
