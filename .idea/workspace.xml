@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f53958b-8d06-4baf-a6e8-365fbdf23692" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/mavros/src/plugins/imu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mavros/src/plugins/imu.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +60,8 @@
       <file leaf-file-name="fake_gps.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="266" column="62" lean-forward="true" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
+            <state relative-caret-position="346">
+              <caret line="250" column="78" lean-forward="true" selection-start-line="250" selection-start-column="78" selection-end-line="250" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -173,9 +172,9 @@
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="928" />
-    <option name="height" value="1084" />
+    <option name="y" value="24" />
+    <option name="width" value="1708" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -300,12 +299,12 @@
       <workItem from="1533970171294" duration="181000" />
       <workItem from="1534063017349" duration="1204000" />
       <workItem from="1534066460066" duration="599000" />
-      <workItem from="1534068074834" duration="4765000" />
+      <workItem from="1534068074834" duration="10552000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71375000" />
+    <option name="totallyTimeSpent" value="77162000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,11 +319,11 @@
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32969433" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18286026" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32893288" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.3179318" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.22552255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.18955731" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -697,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mavros_extras/src/plugins/fake_gps.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="266" column="62" lean-forward="true" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
+        <state relative-caret-position="346">
+          <caret line="250" column="78" lean-forward="true" selection-start-line="250" selection-start-column="78" selection-end-line="250" selection-end-column="78" />
         </state>
       </provider>
     </entry>

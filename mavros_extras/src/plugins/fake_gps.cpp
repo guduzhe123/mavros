@@ -247,12 +247,12 @@ private:
 		mavlink::common::msg::HIL_GPS fix {};
 		fix.time_usec = fake_gps_receive.header.stamp.toNSec() / 1000;;
 		fix.lat = fake_gps_receive.latitude * 1e7;		// [degrees * 1e7]
-		fix.lon = fake_gps_receive.longitude* 1e7;		// [degrees * 1e7]
-		fix.alt = fake_gps_receive.altitude* 1e7;	// [meters * 1e3]
+		fix.lon = fake_gps_receive.longitude * 1e7;		// [degrees * 1e7]
+		fix.alt = fake_gps_receive.altitude * 1e7;	// [meters * 1e3]
 
 		fix.eph = fake_gps_receive.position_covariance[0]* 1e2;			// [cm]
 		fix.epv = fake_gps_receive.position_covariance[1]* 1e2;			// [cm]
-		fix.satellites_visible = fake_gps_receive.position_covariance[2] * 1e2;
+		fix.satellites_visible = fake_gps_receive.position_covariance[2];
 		fix.cog = fake_gps_receive.position_covariance[3] *  1e2;			// [degrees * 1e2]
 
 
@@ -263,7 +263,7 @@ private:
 		fix.fix_type = fake_gps_receive.status.status;
 		
 //		ROS_INFO("fix.lat = %.8f, fake_gps_receive.latitude = %.8f", fix.lat, fake_gps_receive.latitude* 1e7);
-//		ROS_INFO("fix.eph = %.2f", (double)fix.eph );
+//		ROS_INFO("fix.satellites_visible = %.2f", (double)fake_gps_receive.position_covariance[2] );
 
 		UAS_FCU(m_uas)->send_message_ignore_drop(fix);
 
