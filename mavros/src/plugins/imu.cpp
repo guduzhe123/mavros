@@ -83,15 +83,17 @@ public:
 		setup_covariance(unk_orientation_cov, 0.0);
 
 		imu_pub = imu_nh.advertise<sensor_msgs::Imu>("data", 10);
+		uav1_imu_pub = imu_nh.advertise<sensor_msgs::Imu>("uav1/data", 10);
+		uav2_imu_pub = imu_nh.advertise<sensor_msgs::Imu>("uav1/data", 10);
 		magn_pub = imu_nh.advertise<sensor_msgs::MagneticField>("mag", 10);
 		temp_imu_pub = imu_nh.advertise<sensor_msgs::Temperature>("temperature_imu", 10);
 		temp_baro_pub = imu_nh.advertise<sensor_msgs::Temperature>("temperature_baro", 10);
 		static_press_pub = imu_nh.advertise<sensor_msgs::FluidPressure>("static_pressure", 10);
 		diff_press_pub = imu_nh.advertise<sensor_msgs::FluidPressure>("diff_pressure", 10);
 		imu_raw_pub = imu_nh.advertise<sensor_msgs::Imu>("data_raw", 10);
-		sys_status_sub = imu_nh.subscribe("from", 50,  &IMUPlugin::sys_status_cb, this);
 		// Reset has_* flags on connection change
 		enable_connection_cb();
+        sys_status_sub = imu_nh.subscribe("/mavlink/from", 10,  &IMUPlugin::sys_status_cb, this);
 	}
 
 	Subscriptions get_subscriptions() {
@@ -110,6 +112,8 @@ private:
 	std::string frame_id;
 
 	ros::Publisher imu_pub;
+	ros::Publisher uav1_imu_pub;
+	ros::Publisher uav2_imu_pub;
 	ros::Publisher imu_raw_pub;
 	ros::Publisher magn_pub;
 	ros::Publisher temp_imu_pub;
@@ -118,12 +122,14 @@ private:
 	ros::Publisher diff_press_pub;
 
 	ros::Subscriber sys_status_sub;
+	ros::Subscriber imu_sub;
 
 	bool has_hr_imu;
 	bool has_raw_imu;
 	bool has_scaled_imu;
 	bool has_att_quat;
 	bool received_linear_accel;
+	uint8_t sys_id;
 	Eigen::Vector3d linear_accel_vec_flu;
 	Eigen::Vector3d linear_accel_vec_frd;
 	ftf::Covariance3d linear_acceleration_cov;
@@ -219,6 +225,11 @@ private:
 		 */
 		// [pub_enu]
 		imu_pub.publish(imu_enu_msg);
+		if (sys_id == UAV1) {
+			uav1_imu_pub.publish(imu_enu_msg);
+		} else if (sys_id == UAV2) {
+			uav2_imu_pub.publish(imu_enu_msg);
+		}
 		// [pub_enu]
 	}
 
@@ -568,10 +579,8 @@ private:
 		has_att_quat = false;
 	}
 
-	void sys_status_cb(mavros_msgs::Mavlink::ConstPtr &msg) {
-		uint8_t sys_id;
+	void sys_status_cb(const mavros_msgs::Mavlink::ConstPtr &msg) {
 		sys_id = msg->sysid;
-		ROS_INFO("sys_id = %d", sys_id);
 	}
 };
 }	// namespace std_plugins

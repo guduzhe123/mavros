@@ -67,6 +67,13 @@ public:
 	 */
 	virtual Subscriptions get_subscriptions() = 0;
 
+	enum {
+		UAV1 = 1,
+		UAV2,
+		UAV3,
+		UAV4
+	};
+
 protected:
 	/**
 	 * @brief Plugin constructor
