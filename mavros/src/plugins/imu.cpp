@@ -89,7 +89,7 @@ public:
 		static_press_pub = imu_nh.advertise<sensor_msgs::FluidPressure>("static_pressure", 10);
 		diff_press_pub = imu_nh.advertise<sensor_msgs::FluidPressure>("diff_pressure", 10);
 		imu_raw_pub = imu_nh.advertise<sensor_msgs::Imu>("data_raw", 10);
-
+		sys_status_sub = imu_nh.subscribe("from", 50,  &IMUPlugin::sys_status_cb, this);
 		// Reset has_* flags on connection change
 		enable_connection_cb();
 	}
@@ -116,6 +116,8 @@ private:
 	ros::Publisher temp_baro_pub;
 	ros::Publisher static_press_pub;
 	ros::Publisher diff_press_pub;
+
+	ros::Subscriber sys_status_sub;
 
 	bool has_hr_imu;
 	bool has_raw_imu;
@@ -564,6 +566,12 @@ private:
 		has_hr_imu = false;
 		has_scaled_imu = false;
 		has_att_quat = false;
+	}
+
+	void sys_status_cb(mavros_msgs::Mavlink::ConstPtr &msg) {
+		uint8_t sys_id;
+		sys_id = msg->sysid;
+		ROS_INFO("sys_id = %d", sys_id);
 	}
 };
 }	// namespace std_plugins
