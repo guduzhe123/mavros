@@ -83,8 +83,8 @@ public:
 		setup_covariance(unk_orientation_cov, 0.0);
 
 		imu_pub = imu_nh.advertise<sensor_msgs::Imu>("data", 10);
-		uav1_imu_pub = imu_nh.advertise<sensor_msgs::Imu>("uav1/data", 10);
-		uav2_imu_pub = imu_nh.advertise<sensor_msgs::Imu>("uav1/data", 10);
+		uav1_imu_pub = imu_nh.advertise<sensor_msgs::Imu>("/uav1/mavros/imu/data", 10);
+		uav2_imu_pub = imu_nh.advertise<sensor_msgs::Imu>("/uav2/mavros/imu/data", 10);
 		magn_pub = imu_nh.advertise<sensor_msgs::MagneticField>("mag", 10);
 		temp_imu_pub = imu_nh.advertise<sensor_msgs::Temperature>("temperature_imu", 10);
 		temp_baro_pub = imu_nh.advertise<sensor_msgs::Temperature>("temperature_baro", 10);

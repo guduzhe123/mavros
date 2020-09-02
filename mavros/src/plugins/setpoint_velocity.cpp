@@ -102,13 +102,13 @@ private:
 			}
 		} ();
 
-		set_position_target_local_ned(stamp.toNSec() / 1000000,
-					utils::enum_value(mav_frame),
-					ignore_all_except_v_xyz_yr,
-					Eigen::Vector3d::Zero(),
-					vel,
-					Eigen::Vector3d::Zero(),
-					0.0, yr.z());
+        set_position_target_local_ned(stamp.toNSec() / 1000000,
+                                      utils::enum_value(mav_frame),
+                                      ignore_all_except_v_xyz_yr,
+                                      Eigen::Vector3d::Zero(),
+                                      vel,
+                                      Eigen::Vector3d::Zero(),
+                                      0.0, yr.z(), 1);
 	}
 
 	/* -*- callbacks -*- */

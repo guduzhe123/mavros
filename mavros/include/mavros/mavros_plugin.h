@@ -71,7 +71,11 @@ public:
 		UAV1 = 1,
 		UAV2,
 		UAV3,
-		UAV4
+		UAV4,
+		USV1,
+		USV2,
+		USV3,
+		UUV1
 	};
 
 protected:

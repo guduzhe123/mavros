@@ -173,14 +173,14 @@ private:
 		auto ang_vel_ned = ftf::transform_frame_ned_enu(ang_vel_enu);
 		yaw_rate = ang_vel_ned.z();
 
-		set_position_target_local_ned(
-					req->header.stamp.toNSec() / 1000000,
-					req->coordinate_frame,
-					req->type_mask,
-					position,
-					velocity,
-					af,
-					yaw, yaw_rate);
+        set_position_target_local_ned(
+                req->header.stamp.toNSec() / 1000000,
+                req->coordinate_frame,
+                req->type_mask,
+                position,
+                velocity,
+                af,
+                yaw, yaw_rate, 1);
 	}
 
 	void global_cb(const mavros_msgs::GlobalPositionTarget::ConstPtr &req)

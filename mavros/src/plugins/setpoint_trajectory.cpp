@@ -183,15 +183,15 @@ private:
 
 		}
 
-		set_position_target_local_ned(
-					ros::Time::now().toNSec() / 1000000,
-					utils::enum_value(mav_frame),
-					type_mask,
-					position,
-					velocity,
-					af,
-					ftf::quaternion_get_yaw(attitude),
-					yaw_rate);
+        set_position_target_local_ned(
+                ros::Time::now().toNSec() / 1000000,
+                utils::enum_value(mav_frame),
+                type_mask,
+                position,
+                velocity,
+                af,
+                ftf::quaternion_get_yaw(attitude),
+                yaw_rate, 1);
 	
 		next_setpoint_target = setpoint_target + 1;
 		if (next_setpoint_target != trajectory_target_msg->points.cend()) {

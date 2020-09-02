@@ -64,6 +64,22 @@ public:
 		}
 		else {
 			setpoint_sub = sp_nh.subscribe("local", 10, &SetpointPositionPlugin::setpoint_cb, this);
+			uav1_setpoint_sub = sp_nh.subscribe("/uav1/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    uav1_setpoint_cb, this);
+			uav2_setpoint_sub = sp_nh.subscribe("/uav2/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    uav2_setpoint_cb, this);
+			uav3_setpoint_sub = sp_nh.subscribe("/uav3/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    uav3_setpoint_cb, this);
+			uav4_setpoint_sub = sp_nh.subscribe("/uav4/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    uav4_setpoint_cb, this);
+			usv1_setpoint_sub = sp_nh.subscribe("/usv1/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    usv1_setpoint_cb, this);
+			usv2_setpoint_sub = sp_nh.subscribe("/usv2/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    usv2_setpoint_cb, this);
+			usv3_setpoint_sub = sp_nh.subscribe("/usv3/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    usv3_setpoint_cb, this);
+            uuv1_setpoint_sub = sp_nh.subscribe("/uuv1/mavros/setpoint_position/local", 10, &SetpointPositionPlugin::
+			                                    uuv1_setpoint_cb, this);
 			// Subscriber for goal gps
 			setpointg_sub = sp_nh.subscribe("global", 10, &SetpointPositionPlugin::setpointg_cb, this);
 			// Subscriber for goal gps but will convert it to local coordinates
@@ -97,6 +113,8 @@ private:
 	ros::NodeHandle sp_nh;
 	ros::NodeHandle spg_nh;		//!< to get local position and gps coord which are not under sp_h()
 	ros::Subscriber setpoint_sub;
+	ros::Subscriber uav1_setpoint_sub, uav2_setpoint_sub, uav3_setpoint_sub, uav4_setpoint_sub, usv1_setpoint_sub, usv2_setpoint_sub,
+	                usv3_setpoint_sub, uuv1_setpoint_sub;
 	ros::Subscriber setpointg_sub;	//!< Global setpoint
 	ros::Subscriber setpointg2l_sub;//!< Global setpoint converted to local setpoint
 	ros::Subscriber gps_sub;	//!< current GPS
@@ -124,7 +142,7 @@ private:
 	 *
 	 * @warning Send only XYZ, Yaw. ENU frame.
 	 */
-	void send_position_target(const ros::Time &stamp, const Eigen::Affine3d &tr)
+    void send_position_target(const ros::Time &stamp, const Eigen::Affine3d &tr, int sys_id)
 	{
 		using mavlink::common::MAV_FRAME;
 
@@ -153,13 +171,13 @@ private:
 				}
 			} ();
 
-		set_position_target_local_ned(stamp.toNSec() / 1000000,
-			utils::enum_value(mav_frame),
-			ignore_all_except_xyz_y,
-			p,
-			Eigen::Vector3d::Zero(),
-			Eigen::Vector3d::Zero(),
-			ftf::quaternion_get_yaw(q), 0.0);
+        set_position_target_local_ned(stamp.toNSec() / 1000000,
+                                      utils::enum_value(mav_frame),
+                                      ignore_all_except_xyz_y,
+                                      p,
+                                      Eigen::Vector3d::Zero(),
+                                      Eigen::Vector3d::Zero(),
+                                      ftf::quaternion_get_yaw(q), 0.0, sys_id);
 	}
 
 	/* -*- callbacks -*- */
@@ -172,7 +190,7 @@ private:
 		// tf2::convert()
 		tf::transformMsgToEigen(transform.transform, tr);
 
-		send_position_target(transform.header.stamp, tr);
+        send_position_target(transform.header.stamp, tr, 1);
 	}
 
 	void setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
@@ -180,8 +198,64 @@ private:
 		Eigen::Affine3d tr;
 		tf::poseMsgToEigen(req->pose, tr);
 
-		send_position_target(req->header.stamp, tr);
+        send_position_target(req->header.stamp, tr, 1);
 	}
+
+	void uav1_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, UAV1);
+	}
+
+	void uav2_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, UAV2);
+	}
+
+	void uav3_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, UAV3);
+	}
+
+	void uav4_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, UAV4);
+	}
+
+	void usv1_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, USV1);
+	}
+
+	void usv2_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, USV2);
+	}
+
+	void usv3_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, USV3);
+	}
+	void uuv1_setpoint_cb(const geometry_msgs::PoseStamped::ConstPtr &req)
+	{
+		Eigen::Affine3d tr;
+		tf::poseMsgToEigen(req->pose, tr);
+        send_position_target(req->header.stamp, tr, UUV1);
+	}
+
 
 	/**
 	 * Gets setpoint position setpoint and send SET_POSITION_TARGET_GLOBAL_INT
@@ -260,7 +334,7 @@ private:
 		// Only send if current gps is updated, to avoid divergence
 		if ((req->header.stamp.toNSec() / 1000000) > old_gps_stamp) {
 			old_gps_stamp = req->header.stamp.toNSec() / 1000000;
-			send_position_target(req->header.stamp, sp);
+            send_position_target(req->header.stamp, sp, 1);
 		}
 		else {
 			ROS_WARN_THROTTLE_NAMED(10, "spgp", "SPG: sp not sent.");

@@ -67,6 +67,7 @@ MavRos::MavRos() :
 	UAS_DIAG(&mav_uas).setHardwareID(fcu_url);
 
 	ROS_INFO_STREAM("FCU URL: " << fcu_url);
+	ROS_INFO_STREAM("GGGGGGet");
 	try {
 		fcu_link = MAVConnInterface::open_url(fcu_url, system_id, component_id);
 		// may be overridden by URL

@@ -39,6 +39,17 @@ public:
 		debug_vector_pub = debug_nh.advertise<mavros_msgs::DebugValue>("debug_vector", 10);
 		named_value_float_pub = debug_nh.advertise<mavros_msgs::DebugValue>("named_value_float", 10);
 		named_value_int_pub = debug_nh.advertise<mavros_msgs::DebugValue>("named_value_int", 10);
+		
+        uav1_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/uav1/mavros/debug_value/debug_vector", 10);
+        uav2_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/uav2/mavros/debug_value/debug_vector", 10);
+        uav3_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/uav3/mavros/debug_value/debug_vector", 10);
+        uav4_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/uav4/mavros/debug_value/debug_vector", 10);
+        usv1_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/usv1/mavros/debug_value/debug_vector", 10);
+        usv2_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/usv2/mavros/debug_value/debug_vector", 10);
+        usv3_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/usv3/mavros/debug_value/debug_vector", 10);
+        uuv1_debug_pub = debug_nh.advertise<mavros_msgs::DebugValue>("/uuv1/mavros/debug_value/debug_vector", 10);
+
+        sys_status_sub = debug_nh.subscribe("/mavlink/from", 10,  &DebugValuePlugin::sys_status_cb, this);
 	}
 
 	Subscriptions get_subscriptions() {
@@ -53,14 +64,21 @@ public:
 private:
 	ros::NodeHandle debug_nh;
 
-	ros::Subscriber debug_sub;
+	ros::Subscriber debug_sub, sys_status_sub;
 
 	ros::Publisher debug_pub;
+	ros::Publisher uav1_debug_pub, uav2_debug_pub, uav3_debug_pub, uav4_debug_pub, usv1_debug_pub, usv2_debug_pub, usv3_debug_pub,
+	                uuv1_debug_pub;
 	ros::Publisher debug_vector_pub;
 	ros::Publisher named_value_float_pub;
 	ros::Publisher named_value_int_pub;
 
+	int sys_id;
+
 	/* -*- helpers -*- */
+    void sys_status_cb(const mavros_msgs::Mavlink::ConstPtr &msg) {
+        sys_id = msg->sysid;
+    }
 
 	/**
 	 * @brief Helper function to log debug messages
@@ -175,6 +193,35 @@ private:
 
 		debug_logger(debug.get_name(), *dv_msg);
 		debug_vector_pub.publish(dv_msg);
+
+        switch(sys_id) {
+            case UAV1:
+                uav1_debug_pub.publish(dv_msg);
+                break;
+            case UAV2:
+                uav2_debug_pub.publish(dv_msg);
+                break;
+            case UAV3:
+                uav3_debug_pub.publish(dv_msg);
+                break;
+            case UAV4:
+                uav4_debug_pub.publish(dv_msg);
+                break;
+            case USV1:
+                usv1_debug_pub.publish(dv_msg);
+                break;
+            case USV2:
+                usv2_debug_pub.publish(dv_msg);
+                break;
+            case USV3:
+                usv3_debug_pub.publish(dv_msg);
+                break;
+            case UUV1:
+                uuv1_debug_pub.publish(dv_msg);
+                break;
+            default:
+                break;
+        }
 	}
 
 	/**

@@ -58,12 +58,20 @@ public:
 		lp_nh.param<std::string>("tf/child_frame_id", tf_child_frame_id, "base_link");
 
 		local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("pose", 10);
+		uav1_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav1/mavros/local_position/pose", 10);
+        uav2_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav2/mavros/local_position/pose", 10);
+        uav3_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav3/mavros/local_position/pose", 10);
+        uav4_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav4/mavros/local_position/pose", 10);
+        uav5_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav5/mavros/local_position/pose", 10);
+        uav6_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav6/mavros/local_position/pose", 10);
+        uav7_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav7/mavros/local_position/pose", 10);
 		local_position_cov = lp_nh.advertise<geometry_msgs::PoseWithCovarianceStamped>("pose_cov", 10);
 		local_velocity_local = lp_nh.advertise<geometry_msgs::TwistStamped>("velocity_local", 10);
 		local_velocity_body = lp_nh.advertise<geometry_msgs::TwistStamped>("velocity_body", 10);
 		local_velocity_cov = lp_nh.advertise<geometry_msgs::TwistWithCovarianceStamped>("velocity_body_cov", 10);
 		local_accel = lp_nh.advertise<geometry_msgs::AccelWithCovarianceStamped>("accel", 10);
 		local_odom = lp_nh.advertise<nav_msgs::Odometry>("odom",10);
+        sys_status_sub = lp_nh.subscribe("/mavlink/from", 10,  &LocalPositionPlugin::sys_status_cb, this);
 	}
 
 	Subscriptions get_subscriptions() {
@@ -77,12 +85,15 @@ private:
 	ros::NodeHandle lp_nh;
 
 	ros::Publisher local_position;
+	ros::Publisher uav1_local_position, uav2_local_position, uav3_local_position, uav4_local_position, uav5_local_position,
+	               uav6_local_position, uav7_local_position, uav8_local_position;
 	ros::Publisher local_position_cov;
 	ros::Publisher local_velocity_local;
 	ros::Publisher local_velocity_body;
 	ros::Publisher local_velocity_cov;
 	ros::Publisher local_accel;
 	ros::Publisher local_odom;
+	ros::Subscriber sys_status_sub;
 
 	std::string frame_id;		//!< frame for Pose
 	std::string tf_frame_id;	//!< origin for TF
@@ -90,6 +101,11 @@ private:
 	bool tf_send;
 	bool has_local_position_ned;
 	bool has_local_position_ned_cov;
+	int sys_id;
+
+    void sys_status_cb(const mavros_msgs::Mavlink::ConstPtr &msg) {
+        sys_id = msg->sysid;
+    }
 
 	void publish_tf(boost::shared_ptr<nav_msgs::Odometry> &odom)
 	{
@@ -141,6 +157,35 @@ private:
 		pose->header = odom->header;
 		pose->pose = odom->pose.pose;
 		local_position.publish(pose);
+
+		switch(sys_id) {
+            case UAV1:
+                uav1_local_position.publish(pose);
+                break;
+            case UAV2:
+                uav2_local_position.publish(pose);
+                break;
+            case UAV3:
+                uav3_local_position.publish(pose);
+                break;
+            case UAV4:
+                uav4_local_position.publish(pose);
+                break;
+            case USV1:
+                uav5_local_position.publish(pose);
+                break;
+            case USV2:
+                uav6_local_position.publish(pose);
+                break;
+            case USV3:
+                uav7_local_position.publish(pose);
+                break;
+            case UUV1:
+                uav8_local_position.publish(pose);
+                break;
+            default:
+                break;
+		}
 
 		// publish velocity always
 		// velocity in the body frame
