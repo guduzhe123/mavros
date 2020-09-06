@@ -62,9 +62,9 @@ public:
         uav2_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav2/mavros/local_position/pose", 10);
         uav3_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav3/mavros/local_position/pose", 10);
         uav4_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav4/mavros/local_position/pose", 10);
-        uav5_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav5/mavros/local_position/pose", 10);
-        uav6_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav6/mavros/local_position/pose", 10);
-        uav7_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/uav7/mavros/local_position/pose", 10);
+        usv1_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/usv1/mavros/local_position/pose", 10);
+        usv2_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/usv2/mavros/local_position/pose", 10);
+        usv3_local_position = lp_nh.advertise<geometry_msgs::PoseStamped>("/usv3/mavros/local_position/pose", 10);
 		local_position_cov = lp_nh.advertise<geometry_msgs::PoseWithCovarianceStamped>("pose_cov", 10);
 		local_velocity_local = lp_nh.advertise<geometry_msgs::TwistStamped>("velocity_local", 10);
 		local_velocity_body = lp_nh.advertise<geometry_msgs::TwistStamped>("velocity_body", 10);
@@ -85,8 +85,8 @@ private:
 	ros::NodeHandle lp_nh;
 
 	ros::Publisher local_position;
-	ros::Publisher uav1_local_position, uav2_local_position, uav3_local_position, uav4_local_position, uav5_local_position,
-	               uav6_local_position, uav7_local_position, uav8_local_position;
+	ros::Publisher uav1_local_position, uav2_local_position, uav3_local_position, uav4_local_position, usv1_local_position,
+	               usv2_local_position, usv3_local_position, uav8_local_position;
 	ros::Publisher local_position_cov;
 	ros::Publisher local_velocity_local;
 	ros::Publisher local_velocity_body;
@@ -172,13 +172,13 @@ private:
                 uav4_local_position.publish(pose);
                 break;
             case USV1:
-                uav5_local_position.publish(pose);
+                usv1_local_position.publish(pose);
                 break;
             case USV2:
-                uav6_local_position.publish(pose);
+                usv2_local_position.publish(pose);
                 break;
             case USV3:
-                uav7_local_position.publish(pose);
+                usv3_local_position.publish(pose);
                 break;
             case UUV1:
                 uav8_local_position.publish(pose);

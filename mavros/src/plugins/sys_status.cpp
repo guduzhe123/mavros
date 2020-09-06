@@ -482,6 +482,14 @@ public:
 		autopilot_version_timer.stop();
 
 		state_pub = nh.advertise<mavros_msgs::State>("state", 10, true);
+		uav1_state_pub = nh.advertise<mavros_msgs::State>("/uav1/mavros/state", 10, true);
+		uav2_state_pub = nh.advertise<mavros_msgs::State>("/uav2/mavros/state", 10, true);
+		uav3_state_pub = nh.advertise<mavros_msgs::State>("/uav3/mavros/state", 10, true);
+		uav4_state_pub = nh.advertise<mavros_msgs::State>("/uav4/mavros/state", 10, true);
+		usv1_state_pub = nh.advertise<mavros_msgs::State>("/usv1/mavros/state", 10, true);
+		usv2_state_pub = nh.advertise<mavros_msgs::State>("/usv2/mavros/state", 10, true);
+		usv3_state_pub = nh.advertise<mavros_msgs::State>("/usv3/mavros/state", 10, true);
+		uuv1_state_pub = nh.advertise<mavros_msgs::State>("/uuv1/mavros/state", 10, true);
 		extended_state_pub = nh.advertise<mavros_msgs::ExtendedState>("extended_state", 10);
 		batt_pub = nh.advertise<BatteryMsg>("battery", 10);
 		estimator_status_pub = nh.advertise<mavros_msgs::EstimatorStatus>("estimator_status", 10);
@@ -492,6 +500,7 @@ public:
 		vehicle_info_get_srv = nh.advertiseService("vehicle_info_get", &SystemStatusPlugin::vehicle_info_get_cb, this);
 		message_interval_srv = nh.advertiseService("set_message_interval", &SystemStatusPlugin::set_message_interval_cb, this);
 
+        sys_status_sub = nh.subscribe("/mavlink/from", 10,  &SystemStatusPlugin::sys_status_cb, this);
 		// init state topic
 		publish_disconnection();
 		enable_connection_cb();
@@ -523,16 +532,18 @@ private:
 	ros::Timer heartbeat_timer;
 	ros::Timer autopilot_version_timer;
 
-	ros::Publisher state_pub;
+	ros::Publisher state_pub, uav1_state_pub, uav2_state_pub, uav3_state_pub, uav4_state_pub, usv1_state_pub, usv2_state_pub,
+	                usv3_state_pub, uuv1_state_pub;
 	ros::Publisher extended_state_pub;
 	ros::Publisher batt_pub;
 	ros::Publisher estimator_status_pub;
 	ros::Publisher statustext_pub;
-	ros::Subscriber statustext_sub;
+	ros::Subscriber statustext_sub, sys_status_sub;
 	ros::ServiceServer rate_srv;
 	ros::ServiceServer mode_srv;
 	ros::ServiceServer vehicle_info_get_srv;
 	ros::ServiceServer message_interval_srv;
+	int sys_id;
 
 	MAV_TYPE conn_heartbeat_mav_type;
 	static constexpr int RETRIES_COUNT = 6;
@@ -545,6 +556,10 @@ private:
 	M_VehicleInfo vehicles;
 
 	/* -*- mid-level helpers -*- */
+
+    void sys_status_cb(const mavros_msgs::Mavlink::ConstPtr &msg) {
+        sys_id = msg->sysid;
+    }
 
 	// Get vehicle key for the unordered map containing all vehicles
 	inline uint16_t get_vehicle_key(uint8_t sysid,uint8_t compid) {
@@ -684,6 +699,35 @@ private:
 		state_msg->system_status = enum_value(MAV_STATE::UNINIT);
 
 		state_pub.publish(state_msg);
+
+        switch(sys_id) {
+            case UAV1:
+                uav1_state_pub.publish(state_msg);
+                break;
+            case UAV2:
+                uav2_state_pub.publish(state_msg);
+                break;
+            case UAV3:
+                uav3_state_pub.publish(state_msg);
+                break;
+            case UAV4:
+                uav4_state_pub.publish(state_msg);
+                break;
+            case USV1:
+                usv1_state_pub.publish(state_msg);
+                break;
+            case USV2:
+                usv2_state_pub.publish(state_msg);
+                break;
+            case USV3:
+                usv3_state_pub.publish(state_msg);
+                break;
+            case UUV1:
+                uuv1_state_pub.publish(state_msg);
+                break;
+            default:
+                break;
+        }
 	}
 
 	/* -*- message handlers -*- */
@@ -737,6 +781,37 @@ private:
 		state_msg->system_status = hb.system_status;
 
 		state_pub.publish(state_msg);
+
+        switch(sys_id) {
+            case UAV1:
+                uav1_state_pub.publish(state_msg);
+                break;
+            case UAV2:
+                uav2_state_pub.publish(state_msg);
+                break;
+            case UAV3:
+                uav3_state_pub.publish(state_msg);
+                break;
+            case UAV4:
+                uav4_state_pub.publish(state_msg);
+                break;
+            case USV1:
+                usv1_state_pub.publish(state_msg);
+                break;
+            case USV2:
+                usv2_state_pub.publish(state_msg);
+                break;
+            case USV3:
+                usv3_state_pub.publish(state_msg);
+                break;
+            case UUV1:
+                uuv1_state_pub.publish(state_msg);
+                break;
+            default:
+                break;
+        }
+
+
 		hb_diag.tick(hb.type, hb.autopilot, state_msg->mode, hb.system_status);
 	}
 

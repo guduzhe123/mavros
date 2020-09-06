@@ -117,6 +117,14 @@ MavRos::MavRos() :
 
 	// ROS mavlink bridge
 	mavlink_pub = mavlink_nh.advertise<mavros_msgs::Mavlink>("from", 100);
+    uav1_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/uav1/mavlink/from", 100);
+    uav2_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/uav2/mavlink/from", 100);
+    uav3_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/uav3/mavlink/from", 100);
+    uav4_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/uav4/mavlink/from", 100);
+    usv1_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/usv1/mavlink/from", 100);
+    usv2_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/usv2/mavlink/from", 100);
+    usv3_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/usv3/mavlink/from", 100);
+    uuv1_mavlink_from = mavlink_nh.advertise<mavros_msgs::Mavlink>("/uuv1/mavlink/from", 100);
 	mavlink_sub = mavlink_nh.subscribe("to", 100, &MavRos::mavlink_sub_cb, this,
 		ros::TransportHints()
 			.unreliable().maxDatagramSize(1024)
@@ -215,6 +223,36 @@ void MavRos::mavlink_pub_cb(const mavlink_message_t *mmsg, Framing framing)
 	rmsg->header.stamp = ros::Time::now();
 	mavros_msgs::mavlink::convert(*mmsg, *rmsg, enum_value(framing));
 	mavlink_pub.publish(rmsg);
+
+    switch(rmsg->sysid) {
+        case UAV1:
+            uav1_mavlink_from.publish(rmsg);
+            break;
+        case UAV2:
+            uav2_mavlink_from.publish(rmsg);
+            break;
+        case UAV3:
+            uav3_mavlink_from.publish(rmsg);
+            break;
+        case UAV4:
+            uav4_mavlink_from.publish(rmsg);
+            break;
+        case USV1:
+            usv1_mavlink_from.publish(rmsg);
+            break;
+        case USV2:
+            usv2_mavlink_from.publish(rmsg);
+            break;
+        case USV3:
+            usv3_mavlink_from.publish(rmsg);
+            break;
+        case UUV1:
+            uuv1_mavlink_from.publish(rmsg);
+            break;
+        default:
+            break;
+    }
+
 }
 
 void MavRos::mavlink_sub_cb(const mavros_msgs::Mavlink::ConstPtr &rmsg)

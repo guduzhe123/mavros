@@ -40,6 +40,17 @@ public:
 	void spin();
 
 private:
+    enum {
+        UAV1 = 1,
+        UAV2,
+        UAV3,
+        UAV4,
+        USV1,
+        USV2,
+        USV3,
+        UUV1
+    };
+
 	ros::NodeHandle mavlink_nh;
 	// fcu_link stored in mav_uas
 	mavconn::MAVConnInterface::Ptr gcs_link;
@@ -47,7 +58,8 @@ private:
 	ros::Time last_message_received_from_gcs;
 	ros::Duration conn_timeout;
 
-	ros::Publisher mavlink_pub;
+	ros::Publisher mavlink_pub, uav1_mavlink_from, uav2_mavlink_from, uav3_mavlink_from, uav4_mavlink_from, usv1_mavlink_from,
+	               usv2_mavlink_from, usv3_mavlink_from, uuv1_mavlink_from;
 	ros::Subscriber mavlink_sub;
 
 	diagnostic_updater::Updater gcs_diag_updater;
